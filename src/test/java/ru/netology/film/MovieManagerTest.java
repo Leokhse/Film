@@ -18,7 +18,7 @@ public class MovieManagerTest {
         movieManager.addFilm(film);
         Film[] films = movieManager.findAll();
         Assertions.assertEquals(1, films.length);
-        Assertions.assertEquals(film, films[0]);
+        Assertions.assertArrayEquals(new Film[]{film}, films);
     }
 
     @Test
@@ -29,8 +29,7 @@ public class MovieManagerTest {
         movieManager.addFilm(film2);
         Film[] films = movieManager.findAll();
         Assertions.assertEquals(2, films.length);
-        Assertions.assertEquals(film1, films[0]);
-        Assertions.assertEquals(film2, films[1]);
+        Assertions.assertArrayEquals(new Film[]{film1, film2}, films);
     }
 
     @Test
@@ -49,11 +48,7 @@ public class MovieManagerTest {
         movieManager.addFilm(film6);
         Film[] lastFilms = movieManager.findLast();
         Assertions.assertEquals(5, lastFilms.length);
-        Assertions.assertEquals(film6, lastFilms[0]);
-        Assertions.assertEquals(film5, lastFilms[1]);
-        Assertions.assertEquals(film4, lastFilms[2]);
-        Assertions.assertEquals(film3, lastFilms[3]);
-        Assertions.assertEquals(film2, lastFilms[4]);
+        Assertions.assertArrayEquals(new Film[]{film6, film5, film4, film3, film2}, lastFilms);
     }
 
     @Test
@@ -69,8 +64,6 @@ public class MovieManagerTest {
         movieManager.addFilm(film4);
         Film[] lastFilms = movieManager.findLast();
         Assertions.assertEquals(3, lastFilms.length);
-        Assertions.assertEquals(film4, lastFilms[0]);
-        Assertions.assertEquals(film3, lastFilms[1]);
-        Assertions.assertEquals(film2, lastFilms[2]);
+        Assertions.assertArrayEquals(new Film[]{film4, film3, film2}, lastFilms);
     }
 }
